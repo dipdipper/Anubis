@@ -5,10 +5,16 @@ const ytdl = require('ytdl-core');
 const client = new Discord.Client();
 
 const activities = [
-  "Under Development",
+  "Left This One Empty",
   "DipDipper & indra",
   "GitHub Link: https://github.com/DipDipper/Anubis",
-]; //You can change your statuses from up.
+  "Under Development",
+  "Have a Nice Day",
+  "Go Get Some Sleep",
+  "What if everything is a simulation?",
+  "Our Developer just broke up with his girlfriend.",
+  "Stay tuned for more.",
+]; //You can change your statuses from up, we added a few more at Status and Activity Update v2.
 
 // session opening.
 // starting from coding queue
