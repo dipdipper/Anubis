@@ -23,7 +23,11 @@ user.on('messageReactionAdd', async (reaction,user) => {
 // adding some admin commands.
 
 user.on('message', message => {
-    if (user.hasPermission('MANAGE_MESSAGES')) {
+    if (!user.hasPermission('MANAGE_MESSAGES'))
+        return message.channel.send(
+            'Yeterli yetkiye sahip değilsin.'
+         );
+    
     if (message.content == '!reaksiyonsil') {
         message.reactions.removeAll();
         message.reply('Mesajlardan reaksiyonları başarıyla sildin.');
