@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const { komut, token } = require('./config.json');
+const { prefix, token } = require('./config.json');
 const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
@@ -7,7 +7,7 @@ const client = new Discord.Client();
 
 // session opening.
 // starting from coding queue
-//music code session
+
 
 const queue = new Map();
 
@@ -21,21 +21,21 @@ client.once('reconnecting', () => {
 
 client.on("message", async message => {
     if (message.author.bot) return;
-    if (!message.content.startsWith(komut)) return;
+    if (!message.content.startsWith(prefix)) return;
   
     const serverQueue = queue.get(message.guild.id);
   
-    if (message.content.startsWith(`${komut}play`)) {
+    if (message.content.startsWith(`${prefix}play`)) {
       execute(message, serverQueue);
       return;
-    } else if (message.content.startsWith(`${komut}skip`)) {
+    } else if (message.content.startsWith(`${prefix}skip`)) {
       skip(message, serverQueue);
       return;
-    } else if (message.content.startsWith(`${komut}stop`)) {
+    } else if (message.content.startsWith(`${prefix}stop`)) {
       stop(message, serverQueue);
       return;
     } else {
-      message.channel.send("Geçerli bir komut girilmeli!");
+      message.channel.send("Geçerli bir prefix girilmeli!");
     }
 });
 
