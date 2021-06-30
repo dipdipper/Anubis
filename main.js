@@ -4,6 +4,7 @@ const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
 
+
 const activities = [
   "Left This One Empty",
   "DipDipper & indra",
@@ -14,6 +15,7 @@ const activities = [
   "What if everything is a simulation?",
   "Our Developer just broke up with his girlfriend.",
   "Stay tuned for more.",
+  "What about using .help before shouting?",
 ]; //You can change your statuses from up, we added a few more at Status and Activity Update v2.
 
 // session opening.
@@ -37,7 +39,11 @@ client.once('reconnecting', () => {
     console.log('Yeniden bağlanıyor!');
 });
 
-
+client.on('message', msg=>{
+  if(msg.content === ".help"){
+      msg.channel.send('**.play +link** You can play music with this command. **.skip** You can skip songs with that command. **.stop** You can kick bot from your channel with this command.');
+    }
+});
 
 
 client.on("message", async message => {
@@ -57,8 +63,6 @@ client.on("message", async message => {
       stop(message, serverQueue);
       message.channel.send(':musical_note: Parça durduruldu!')
       return;
-    } else {
-      message.channel.send("Geçerli bir prefix girilmeli!");
     }
 });
 
