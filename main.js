@@ -30,9 +30,11 @@ client.on("message", async message => {
       return;
     } else if (message.content.startsWith(`${prefix}skip`)) {
       skip(message, serverQueue);
+      message.channel.send(':musical_note: Parça geçildi!')
       return;
     } else if (message.content.startsWith(`${prefix}stop`)) {
       stop(message, serverQueue);
+      message.channel.send(':musical_note: Parça durduruldu!')
       return;
     } else {
       message.channel.send("Geçerli bir prefix girilmeli!");
@@ -85,7 +87,7 @@ async function execute(message, serverQueue) {
       }
     } else {
       serverQueue.songs.push(song);
-      return message.channel.send(`${song.title} sıraya eklendi!`);
+      return message.channel.send(`:musical_note: ${song.title} **sıraya eklendi!** :musical_note:`);
     }
 }
 
@@ -96,7 +98,7 @@ function skip(message, serverQueue) {
         "Müziği geçmek için ses kanalında olman gerekir!"
       );
     if (!serverQueue)
-      return message.channel.send("Herhangi bir parça çalınmadığı için müziği geçemem!");
+      return serverQueue.textChannel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için geçemem!** :musical_note:`);
     serverQueue.connection.dispatcher.end();
 }
 
@@ -108,7 +110,7 @@ function stop(message, serverQueue) {
       );
       
     if (!serverQueue)
-      return message.channel.send("Herhangi bir parça çalınmıyor!");
+      return serverQueue.textChannel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için parça durdurulamadı! :musical_note:`);
       
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end();
