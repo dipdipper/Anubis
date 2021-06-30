@@ -4,6 +4,11 @@ const ytdl = require('ytdl-core');
 
 const client = new Discord.Client();
 
+const activities = [
+  "Under Development",
+  "DipDipper & indra",
+  "GitHub Link: https://github.com/DipDipper/Anubis",
+]; //You can change your statuses from up.
 
 // session opening.
 // starting from coding queue
@@ -11,13 +16,23 @@ const client = new Discord.Client();
 
 const queue = new Map();
 
-client.once('ready', () => {
-    console.log('Hazır!');
+client.on("ready", () => {
+    console.log(`${client.user.username} bot aktif!`);
+    client.user.setStatus("idle") //You can also use "dnd"(do not disturb), "invisible" and "online", but we wanted to use "idle" because of yellow color of moon.
+    setInterval(() => {
+      const randomIndex = Math.floor(Math.random() * (activities.length - 1) + 1);
+      const newActivity = activities[randomIndex];
+  
+      client.user.setActivity(newActivity);
+    }, 10000); //Status changes after 10.000 Milliseconds, it's about 10 seconds.
 });
 
 client.once('reconnecting', () => {
     console.log('Yeniden bağlanıyor!');
 });
+
+
+
 
 client.on("message", async message => {
     if (message.author.bot) return;
