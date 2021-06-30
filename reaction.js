@@ -22,7 +22,7 @@ user.on('messageReactionAdd', async (reaction,user) => {
 
 // adding some admin commands.
 
-user.on('message', () message => {
+user.on('message', message, () => {
     if (!user.hasPermission('MANAGE_MESSAGES'))
         return message.channel.send(
             'Yeterli yetkiye sahip değilsin.'
