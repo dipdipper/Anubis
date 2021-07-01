@@ -78,6 +78,8 @@ async function execute(message, serverQueue) {
         `:warning: - Sunucuya bağlanıp parçayı oynatmak için yeterli yetkiye sahip değilim!`    
       );
     }
+
+    if (message.guild.me.voice.channel && message.member.voice.channel.id !== message.guild.me.voice.channel.id) return message.channel.send(`:warning: - Botun bulunduğu ses kanalında değislin!`);
   
     const songInfo = await ytdl.getInfo(args[1]);
     const song = {
