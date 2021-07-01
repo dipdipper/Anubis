@@ -57,11 +57,9 @@ client.on("message", async message => {
       return;
     } else if (message.content.startsWith(`${prefix}skip`)) {
       skip(message, serverQueue);
-      message.channel.send(':musical_note: Parça geçildi!')
       return;
     } else if (message.content.startsWith(`${prefix}stop`)) {
       stop(message, serverQueue);
-      message.channel.send(':musical_note: Parça durduruldu!')
       return;
     }
 });
@@ -72,12 +70,12 @@ async function execute(message, serverQueue) {
     const voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
       return message.channel.send(
-        "Müzik oynatmak için bir ses kanalında olman gerekir!"
+        `:warning: - Müzik oynatmak için bir ses kanalında olman gerekir!`
       );
     const permissions = voiceChannel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
       return message.channel.send(
-        "Sunucuya bağlanıp parçayı oynatmak için yeterli yetkiye sahip değilim!"
+        `:warning: - Sunucuya bağlanıp parçayı oynatmak için yeterli yetkiye sahip değilim!`    
       );
     }
   
@@ -120,7 +118,7 @@ async function execute(message, serverQueue) {
 function skip(message, serverQueue) {
     if (!message.member.voice.channel)
       return message.channel.send(
-        "Müziği geçmek için ses kanalında olman gerekir!"
+        `:warning: - Müziği geçmek için ses kanalında olman gerekir!`
       );
     if (!serverQueue)
       return serverQueue.textChannel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için geçemem!** :musical_note:`);
@@ -129,13 +127,10 @@ function skip(message, serverQueue) {
 
 
 function stop(message, serverQueue) {
-    if (!message.member.voice.channel)
-      return message.channel.send(
-        "Müziği durdurmak için ses kanalında olammn gerekir!"
-      );
+    if (!message.member.voice.channel) return message.channel.send(`:warning: - Ses kanalında değilsin!`);
       
     if (!serverQueue)
-      return serverQueue.textChannel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için parça durdurulamadı! :musical_note:`);
+      return message.channel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için parça durdurulamadı!** :musical_note:`);
       
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end();
