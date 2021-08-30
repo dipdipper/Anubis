@@ -45,7 +45,11 @@ client.on('message', msg=>{
     }
 });
 
+//Starting of Ticket System
 
+//Ending of Ticket System
+
+//Starting of Music Commands
 client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
@@ -157,6 +161,6 @@ function play(guild, song) {
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
     serverQueue.textChannel.send(`:musical_note: Müzik oynatılıyor: **${song.title}**! :musical_note:`);
 }
-
+//End of Music Commands
 
 client.login(token);
