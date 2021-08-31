@@ -128,7 +128,7 @@ function skip(message, serverQueue) {
       );
     if (!serverQueue)
       return serverQueue.textChannel.send(`:musical_note: **Herhangi bir parça aktif olarak çalınmadığı için geçemem!** :musical_note:`);
-    serverQueue.connection.dispatcher.end();
+    serverQueue.voiceChannel.leave();
 }
 
 
