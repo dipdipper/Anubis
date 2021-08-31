@@ -8,7 +8,7 @@ const client = new Discord.Client();
 const activities = [
   "Left This One Empty",
   "DipDipper & indra",
-  "GitHub Link: https://github.com/DipDipper/Anubis",
+  "Rest in Peace Groovy",
   "Under Development",
   "Have a Nice Day",
   "Go Get Some Sleep",
