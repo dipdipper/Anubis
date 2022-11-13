@@ -1,5 +1,5 @@
 # Anubis
-# Our discord bot project, we're doing this to improve our discord.js.
+# [OUTDATED] A newer version will be on sooner. If you want to use this bot you can use it in older versions for now.
 
 
 # Let's talk about how to you can use that.
