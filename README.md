@@ -1,5 +1,5 @@
 # Anubis
-# [OUTDATED] A newer version will be on sooner. If you want to use this bot you can use it in older versions for now.
+# [UPDATED] You can run this bot in newer versions.
 
 
 # Let's talk about how to you can use that.
