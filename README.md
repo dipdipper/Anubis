@@ -21,6 +21,8 @@ And then start the  cmd who we will made to start the bot.
 # NOTE: Bot is under construction, untill it ends you will can not use the bot.
 
 
-# Bot Developers: asikLEMMY(indra), DipDipper.
+# Bot Developer(s): dipdipper.
+
+# Retired Developer(s): indra.
 
 # Thanks for people who helped to improve our bot and make it perfect!
