@@ -1,7 +1,6 @@
 # Anubis
 # [UPDATED] You can run this bot in newer versions.
 
-
 # Let's talk about how to you can use that.
 
 # First STEP!
@@ -18,11 +17,8 @@ And then use your bot token who you have created it from the Discord Developer's
 
 And then start the  cmd who we will made to start the bot.
 
-# NOTE: Bot is under construction, untill it ends you will can not use the bot.
+# NOTE: Anubis will not get any updates.
 
-
-# Bot Developer(s): dipdipper.
-
-# Retired Developer(s): indra.
+# Bot Developer(s): dipdipper & indra.
 
 # Thanks for people who helped to improve our bot and make it perfect!
